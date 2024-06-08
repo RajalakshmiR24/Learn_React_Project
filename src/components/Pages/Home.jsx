@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import gift from '../../assets/image.png';
-import journeyImg from '../../assets/journey.png'; // replace with your actual image file
-import foodImg from '../../assets/food.png'; // replace with your actual image file
-import shoppingImg from '../../assets/shopping.png'; // replace with your actual image file
+import journeyImg from '../../assets/journey.png';
+import foodImg from '../../assets/food.png';
+import shoppingImg from '../../assets/shopping.png';
 
 function Home() {
   return (

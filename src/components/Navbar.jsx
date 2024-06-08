@@ -29,7 +29,7 @@ const Navbar = () => {
       { id: 10, text: 'Contact2', path: '/contacts/contact2/2/Lakshmi' },
     ]},
     { id: 11, text: 'Login', path: '/', icon: <FaSignInAlt /> },
-    { id: 12, text: 'Registrarion', path: '/register', icon: <FaSignInAlt /> },
+
   ];
 
   return (

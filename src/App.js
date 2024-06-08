@@ -16,9 +16,9 @@ import Protect from './components/Protect';
 import NotFound from './components/Pages/NotFound';
 import OutletComponent from './components/OutletComponent';
 import UseState from './components/Pages/UseState';
-import RegistrationForm from './components/Pages/Registration';
+import SuccessFull from './components/Pages/SuccessFull';
 
-
+// Model
 const App = () => {
   return (
     <>
@@ -39,7 +39,9 @@ const App = () => {
           <Route path='/contacts/contact2/:id/:name' element={<Contact2 />} />
           <Route path='*' element={<NotFound />} />
           <Route path='/usestate' element={<UseState />} />
-          <Route path='/register' element={<RegistrationForm />} />
+          <Route path='/Successfull' element={<SuccessFull/>} />
+
+
 
 
           </Route>
