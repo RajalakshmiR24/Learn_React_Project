@@ -11,12 +11,13 @@ import Tutorials from './components/Resources/Tutorials';
 import CaseStudies from './components/Resources/CaseStudies';
 import Contact1 from './components/Contacts/Contact1';
 import Contact2 from './components/Contacts/Contact2';
-import Login from './components/Pages/Login';
 import Protect from './components/Protect';
 import NotFound from './components/Pages/NotFound';
 import OutletComponent from './components/OutletComponent';
 import UseState from './components/Pages/UseState';
 import SuccessFull from './components/Pages/SuccessFull';
+import SignIn from './components/ReusableComponent/SignIn';
+import SignUp from './components/ReusableComponent/SignUp';
 
 // Model
 const App = () => {
@@ -24,7 +25,8 @@ const App = () => {
     <>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route path='/' element={<SignIn />} />
+        <Route path='/signup' element={<SignUp />} />
         <Route element={<Protect />} >
         <Route element={<OutletComponent />}>
           <Route path='/home' element={<Home />} />

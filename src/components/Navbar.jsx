@@ -28,7 +28,9 @@ const Navbar = () => {
       { id: 9, text: 'Contact1', path: '/contacts/contact1/1/Ramya' },
       { id: 10, text: 'Contact2', path: '/contacts/contact2/2/Lakshmi' },
     ]},
-    { id: 11, text: 'Login', path: '/', icon: <FaSignInAlt /> },
+    { id: 11, text: 'SignIn', path: '/', icon: <FaSignInAlt /> },
+    { id: 12, text: 'SignUp', path: '/signup', icon: <FaSignInAlt /> },
+
 
   ];
 

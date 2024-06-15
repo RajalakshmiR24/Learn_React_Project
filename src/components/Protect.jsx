@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Login from "./Pages/Login";
 
 import React from 'react'
+import SignIn from "./ReusableComponent/SignIn";
 
 
 function authUser() {
@@ -11,7 +11,7 @@ function authUser() {
 
 function Protect() {
     const isAuthUser = authUser();
-  return isAuthUser ? <Outlet/> : <Login/>
+  return isAuthUser ? <Outlet/> : <SignIn/>
 }
 
 export default Protect
