@@ -1,9 +1,9 @@
-/* eslint-disable no-useless-escape */
 import React, { useState } from 'react';
+import InputField from './InputField';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-const phoneRegex = /^(\+91[\-\s]?)?[0]?(91)?(\(\+91\))?[7896]\d{9}$/;
+const phoneRegex = /^(\+91[\-\s]?)?[0]?(91)?(\(\+91\))?[789]\d{9}$/;
 
 const Form = ({ onSubmit, isSignUp = false }) => {
   const [name, setName] = useState('');
@@ -32,62 +32,51 @@ const Form = ({ onSubmit, isSignUp = false }) => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-      onSubmit({ name, email, password, phone });
+      const formData = isSignUp ? { name, email, password, phone } : { email, password };
+      onSubmit(formData);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       {isSignUp && (
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Name</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full px-3 py-2 mt-1 border rounded-md focus:ring-blue-500 focus:border-blue-500"
-          />
-          {errors.name && <p className="mt-2 text-sm text-red-600">{errors.name}</p>}
-        </div>
+        <InputField
+          label="Name"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          error={errors.name}
+        />
       )}
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-3 py-2 mt-1 border rounded-md focus:ring-blue-500 focus:border-blue-500"
-        />
-        {errors.email && <p className="mt-2 text-sm text-red-600">{errors.email}</p>}
-      </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-3 py-2 mt-1 border rounded-md focus:ring-blue-500 focus:border-blue-500"
-        />
-        {errors.password && <p className="mt-2 text-sm text-red-600">{errors.password}</p>}
-      </div>
+      <InputField
+        label="Email"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        error={errors.email}
+      />
+      <InputField
+        label="Password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        error={errors.password}
+      />
       {isSignUp && (
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Phone Number</label>
-          <input
-            type="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className="w-full px-3 py-2 mt-1 border rounded-md focus:ring-blue-500 focus:border-blue-500"
-          />
-          {errors.phone && <p className="mt-2 text-sm text-red-600">{errors.phone}</p>}
-        </div>
+        <InputField
+          label="Phone Number"
+          type="tel"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          error={errors.phone}
+        />
       )}
       <div>
         <button
           type="submit"
           className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
         >
-          {isSignUp ? 'Sign Up' : 'Login'}
+          {isSignUp ? 'Sign Up' : 'Sign in'}
         </button>
       </div>
     </form>
